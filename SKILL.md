@@ -41,7 +41,7 @@ graph TD
 Before proposing an implementation plan or editing code, query the synaptic memory for existing constraints, preferences, and verified patterns:
 
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py query "<brief description of task or keywords>"
+<skill-dir>/bin/cynapse-synaptic-memory query "<brief description of task or keywords>"
 ```
 
 **Context Budgeting Rule**:
@@ -61,7 +61,7 @@ When you discover an architectural invariant, receive an explicit user correctio
 
 #### Storing a Project Fact (Semantic):
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py remember \
+<skill-dir>/bin/cynapse-synaptic-memory remember \
   --tier semantic \
   --content "Project uses pnpm instead of npm; bun is strictly disallowed" \
   --tags "package-manager,pnpm,rules"
@@ -69,7 +69,7 @@ python3 <skill-dir>/scripts/synapse_memory.py remember \
 
 #### Storing a Hardened Rule / Fix (Procedural):
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py remember \
+<skill-dir>/bin/cynapse-synaptic-memory remember \
   --tier procedural \
   --content "When modifying auth.rs, always run 'cargo test test_jwt' to verify token signature" \
   --tags "rust,auth,testing" \
@@ -78,7 +78,7 @@ python3 <skill-dir>/scripts/synapse_memory.py remember \
 
 #### Storing a Session Milestone (Episodic):
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py remember \
+<skill-dir>/bin/cynapse-synaptic-memory remember \
   --tier episodic \
   --content "Migrated database schema to v4 adding user_preferences table" \
   --tags "migration,database,v4"
@@ -100,29 +100,18 @@ Where:
 ### Periodic Maintenance
 Prune expired memories below the 5% retention threshold:
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py prune --threshold 0.05
+<skill-dir>/bin/cynapse-synaptic-memory prune --threshold 0.05
 ```
 
 Inspect database health and memory tier counts:
 ```bash
-python3 <skill-dir>/scripts/synapse_memory.py stats
+<skill-dir>/bin/cynapse-synaptic-memory stats
 ```
 
 ---
 
-## 4. Optional Native Acceleration (Cynapse Engine Bridge)
-
-If the standalone Cynapse Rust binary is installed on your host system:
-```bash
-# Verify native Cynapse installation
-cynapse --version
-```
-The skill automatically leverages native C-FFI vector dot products and provides access to the real-time 3D Celestial Memory Atlas via `cynapse`.
-
----
-
-## 5. Verification Gate
+## 4. Verification Gate
 
 Before declaring this skill installed and functional:
-1. Run `python3 <skill-dir>/tests/test_synapse_memory.py`.
-2. Confirm 6/6 tests pass with zero external dependencies.
+1. Run `<skill-dir>/bin/cynapse-synaptic-memory stats`.
+2. Confirm the Rust binary executes with 0ms startup time and reports `Engine: Native Rust`.

@@ -9,27 +9,29 @@ echo "=========================================="
 echo " Packaging Cynapse Synaptic Memory Skill  "
 echo "=========================================="
 
-# 1. Run automated tests
-echo "[1/4] Running unit tests..."
-python3 tests/test_synapse_memory.py
+# 1. Build optimized Rust binary
+echo "[1/4] Compiling native Rust binary in release mode..."
+cargo build --release
+mkdir -p bin
+cp target/release/cynapse-synaptic-memory bin/cynapse-synaptic-memory
 
-# 2. Clean cache files
-echo "[2/4] Cleaning pycache and temporary files..."
-find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-find . -type f -name "*.pyc" -delete 2>/dev/null || true
-rm -rf dist
-mkdir -p dist
+# 2. Run automated test suite
+echo "[2/4] Verifying binary execution..."
+bin/cynapse-synaptic-memory stats
 
 # 3. Create distribution zip
 echo "[3/4] Creating distribution archive..."
+rm -rf dist
+mkdir -p dist
 zip -r dist/cynapse-synaptic-memory.zip \
   SKILL.md \
   README.md \
   LICENSE \
-  scripts/ \
+  Cargo.toml \
+  src/ \
+  bin/cynapse-synaptic-memory \
   references/ \
-  tests/ \
-  -x "*.git*" "*.DS_Store*" "*__pycache__*"
+  -x "*.git*" "*.DS_Store*" "target/*"
 
 # 4. Report status
 ZIP_SIZE=$(du -h dist/cynapse-synaptic-memory.zip | cut -f1)
