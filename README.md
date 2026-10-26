@@ -1,8 +1,8 @@
 # Cynapse Synaptic Memory: 4-Tier Biological Memory for AI Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests: 6/6 Passing](https://img.shields.io/badge/Tests-6%2F6%20Passing-brightgreen.svg)]()
-[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Standard%20Library%20Only-orange.svg)]()
+[![Price: Free & Open Source](https://img.shields.io/badge/Price-100%25%20Free%20%26%20Open%20Source-brightgreen.svg)]()
+[![Pure Rust](https://img.shields.io/badge/Engine-Pure%20Rust%20Native-orange.svg)]()
 [![Offline First](https://img.shields.io/badge/Privacy-100%25%20Local%20%2F%20Air--Gapped-success.svg)]()
 
 > **Give Claude Code, Cursor, Copilot, and Antigravity lifelong persistent memory across sessions — with zero cloud subscriptions, zero API keys, and zero telemetry.**
@@ -86,18 +86,18 @@ See the complete [Integration Guide](references/INTEGRATION_GUIDE.md) for copy-p
 
 ## Marketplace & Listing Details (Agensi.io)
 
-This skill package is structured specifically for distribution on [Agensi.io](https://www.agensi.io/sell):
-- Standard `SKILL.md` root manifest with valid YAML frontmatter.
-- Zero external runtime dependencies (works out of the box on macOS, Linux, and Windows).
-- Self-contained automated test suite (`tests/test_synapse_memory.py`).
-- Clear non-exclusive licensing (MIT).
+This skill package is structured for distribution on [Agensi.io](https://www.agensi.io/sell) as a **100% Free & Open-Source** public utility to give developers sovereign memory:
+- **Price**: **Free ($0)** — Built for widespread developer adoption and community growth.
+- **Root Manifest**: Standard `SKILL.md` with valid YAML frontmatter.
+- **Zero Runtime Dependencies**: Compiled native Rust binary with 0ms startup.
+- **Full Source Included**: Complete Rust source code under the permissive MIT License.
 
 ### Packaging for Upload
 Run the packaging script to generate a clean distribution zip:
 ```bash
 bash package_skill.sh
 ```
-This produces `cynapse-synaptic-memory.zip` ready for upload to your Agensi seller dashboard.
+This produces `dist/cynapse-synaptic-memory.zip` ready for upload to your Agensi seller dashboard.
 
 ---
 
@@ -105,5 +105,6 @@ This produces `cynapse-synaptic-memory.zip` ready for upload to your Agensi sell
 
 Cynapse Synaptic Memory is open-source technology developed by **Xander (Alartist40)** as part of the **Cynapse Sovereign Edge AI Agent** ecosystem.
 
-- **Main Repository**: [https://github.com/Alartist40/cynapse](https://github.com/Alartist40/cynapse)
-- **License**: MIT
+- **Main Agent Repository**: [https://github.com/Alartist40/cynapse](https://github.com/Alartist40/cynapse)
+- **Skill Repository**: [https://github.com/Alartist40/cynapse-skill](https://github.com/Alartist40/cynapse-skill)
+- **License**: MIT (100% Free & Open Source)
